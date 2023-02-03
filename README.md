@@ -122,12 +122,13 @@ $ npm --version
 
 ## Upgrade
 Solidity의 가장 최신버전은 v0.8.18(23년 2월)
-```sh
-pragma solidity >=0.7.0 < 0.9.0; 
-이렇게쓰면 0.7버전이상 0.9버전미만의 모든 버전 컴파일가능)
 
 1) 업데이트 변경 사항 블로그: https://blog.soliditylang.org/2020/12/16/solidity-v0.8.0-release-announcement/
 2) 업데이트 변경 사항 문서: https://docs.soliditylang.org/en/v0.8.18/080-breaking-changes.html
+
+```sh
+pragma solidity >=0.7.0 < 0.9.0; 
+이렇게쓰면 0.7버전이상 0.9버전미만의 모든 버전 컴파일가능)
 
 주요 변경 사항:
 코드 생성기: 기본적으로 모든 산술이 검사됩니다. 이러한 검사는 를 사용하여 비활성화할 수 있습니다 unchecked { ... }.
