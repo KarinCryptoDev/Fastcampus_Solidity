@@ -2,6 +2,9 @@
 
 # Solidity 기초 문법 실습 자료 
 
+강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
+0.7버전이상 0.9버전 미만의 컴파일러 버전인 pragma solidity >=0.7.0 < 0.9.0;을 사용
+
 <p align="center">
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
   <br />
@@ -9,8 +12,7 @@
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
 </p>
 
-# 솔리디티 특징 (매번 버전 업데이트 되므로 해당 강의는 v0.8.17기준)
-
+# 솔리디티 특징 
 솔리디티(Solidity)는 계약 지향 프로그래밍 언어로 다양한 블록체인 플랫폼의 스마트계약(Smart Contract) 작성 및 구현에 사용된다. 
 - 솔리디티는 정적타입(statically-typed)의 프로그래밍 언어로 EVM상에서 작동하는 스마트계약을 개발하기 위해 설계되었다
 - Ethereum Virtual Machine (EVM)을 목표로 설계된 4가지 언어중 하나이다.
@@ -25,7 +27,7 @@
 - 역사(2): 솔리디티는 2014년 8월에 Gavin Wood 에 의해 처음으로 제안되었으며, 제안 이후 이더리움 프로젝트의 Christian Reitwiessner 가 이끄는 솔리디티팀에 의해 개발 되었다. 
 
 
-**Solidity문서**. Join [soliditylang.org](https://docs.soliditylang.org/en/v0.8.17/) 
+**Solidity문서**. [soliditylang.org](https://docs.soliditylang.org/en/v0.8.17/) 
 
 
 ## Install
