@@ -3,7 +3,7 @@
 # Solidity 기초 문법 실습 자료 
 
 강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
-pragma solidity >=0.7.0 < 0.9.0;(0.7버전이상 0.9버전 미만의 컴파일러 버전 컴파일 가능)을 사용
+pragma solidity >=0.7.0 < 0.9.0;
 
 <p align="center">
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
@@ -106,39 +106,12 @@ npm 설치 확인
 $ npm --version
 ```
 
-Homebrew: (MacOS and Linux)
-
-```sh
-brew tap oven-sh/bun
-brew install bun
-```
-
-Docker: (Linux x64)
-
-```sh
-docker pull jarredsumner/bun:edge
-docker run --rm --init --ulimit memlock=-1:-1 jarredsumner/bun:edge
-```
-
-If using Linux, kernel version 5.6 or higher is strongly recommended, but the minimum is 5.1.
-
 ## Upgrade
-
-To upgrade to the latest version of Bun, run:
-
+Solidity의 가장 최신버전은 v0.8.18(23년 2월)
 ```sh
-bun upgrade
-```
+pragma solidity >=0.7.0 < 0.9.0; 
+이렇게쓰면 0.7버전이상 0.9버전미만의 모든 버전 컴파일가능)
 
-Bun automatically releases a canary build on every commit to `main`. To upgrade to the latest canary build, run:
-
-```sh
-bun upgrade --canary
-```
-
-[View canary build](https://github.com/oven-sh/bun/releases/tag/canary)
-
-<sup>Canary builds are released without automated tests</sup>
 
 ## Table of Contents
 
