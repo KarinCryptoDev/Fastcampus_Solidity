@@ -41,9 +41,23 @@ https://github.com/ethereum/remix-ide </li>
 ## Install
 
 크롬, 엣지, 사파리 등 다양한 브라우저 '리믹스'접속 가능 <br>
-크롬 사용/ 맥 권장: (macOS x64 & Silicon, Linux x64, Windows Subsystem for Linux)
+<strong> 강의는 크롬 사용 / 맥OS </strong>
+
 
 ## nvm을 이용하여 node.js 설치하기
+
+nvm 이란?<br>
+nvm은 nodejs version manager로 시스템에 여러 개의 nodejs 를 설치하고, 사용할 버전을 쉽게 전환할 수 있도록 도와주는 shell script이다. rvm(Ruby Version Manager)와 비슷한 역할을 수행한다고 생각하면 됨
+
+home brew 설치하기  https://brew.sh/index_ko
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+NVM 설치하기  https://nodejs.org/ko/download/
+```sh
+npm install -g bun
+```
 
 Node.js 설치하기  https://nodejs.org/ko/download/
 ```sh
