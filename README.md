@@ -30,7 +30,7 @@ pragma solidity >=0.7.0 < 0.9.0;(0.7버전이상 0.9버전 미만의 컴파일�
 **Solidity문서**. [soliditylang.org](https://docs.soliditylang.org/en/v0.8.17/) 
 
 ## 리믹스IDE 사용해서 실습
-리믹스 특징: IDE는 2가지 종류(웹 앱 또는 데스크톱 앱)와 VSCode 확장으로 제공
+지원 매체: 웹,앱,데스크톱, VSCode확장 제공 <br>
 
 <li> online https://remix.ethereum.org/ </li>
 <li> online
