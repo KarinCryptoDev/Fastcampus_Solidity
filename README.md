@@ -1,5 +1,19 @@
 # Fastcampus_Solidity
 
+## 솔리디티 문법 기초 커리큘럼 
+- 변수와 자료, 연산자와 상수
+- 가시성 지정자
+- 모디파이어
+- 함수와 참조타입
+- 함수와 변수
+- 함수와 가시성 지정자
+- 조건문의 구조
+- 반복문과 응용
+- 매핑
+- 배열
+- 구조체
+- 참조타입의 데이터 저장영역
+- 
 # Solidity 기초 문법 실습 자료 
 
 강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
@@ -112,313 +126,47 @@ Solidity의 가장 최신버전은 v0.8.18(23년 2월)
 pragma solidity >=0.7.0 < 0.9.0; 
 이렇게쓰면 0.7버전이상 0.9버전미만의 모든 버전 컴파일가능)
 
+1) 업데이트 변경 사항 블로그: https://blog.soliditylang.org/2020/12/16/solidity-v0.8.0-release-announcement/
+2) 업데이트 변경 사항 문서: https://docs.soliditylang.org/en/v0.8.18/080-breaking-changes.html
 
-## Table of Contents
+주요 변경 사항:
+코드 생성기: 기본적으로 모든 산술이 검사됩니다. 이러한 검사는 를 사용하여 비활성화할 수 있습니다 unchecked { ... }.
+코드 생성기: 길이가 잘못 인코딩된 저장소의 바이트 배열에 액세스하면 패닉이 발생합니다.
+코드 생성기: 어설션 실패 시 잘못된 opcode 대신 revert오류 서명 및 오류 코드와 함께 사용합니다.Panic(uint256)
+명령줄 인터페이스: JSON 필드 abi, devdoc및 는 이제 문자열 userdoc이 storage-layout아닌 하위 개체입니다.
+명령줄 인터페이스: --old-reporter옵션을 제거합니다.
+명령줄 인터페이스: 레거시 --ast-json옵션을 제거합니다. --ast-compact-json현재 옵션 만 지원됩니다.
+일반: 기본적으로 ABI 코더 v2를 활성화합니다.
+일반: 전역 함수 log0, log1, log2및 log3을 제거 log4합니다.
+파서: 지수화는 올바른 결합입니다. a**b**c로 파싱됩니다 a**(b**c).
+스캐너: , 및 이스케이프 시퀀스에 대한 지원을 \b제거 \f합니다 \v.
+표준 JSON: legacyAST옵션을 제거합니다.
+타입 검사기: 함수 호출 옵션은 한 번만 주어질 수 있습니다.
+형식 시스템: 및 라는 이름 this의 선언 은 공용 함수 및 이벤트를 제외하고 허용되지 않습니다.super_
+유형 시스템: 기능 msg.data에서 허용 receive()하지 않습니다.
+유형 시스템: 금지 type(super).
+유형 시스템: 256개 이상의 구성원이 있는 열거형을 허용하지 않습니다.
+유형 시스템: 음수 리터럴 및 유형보다 큰 리터럴에서 명시적 변환을 허용하지 type(uint160).max않습니다 address.
+유형 시스템: 유형을 허용하지 byte않습니다. 에 대한 별칭이었습니다 bytes1.
+유형 시스템: 유형으로의 명시적 변환은 address항상 지불할 수 없는 유형을 반환합니다 address. 특히 , address(u)및 는 ( 여기서 , address(b)및 는 각각 유형 및 계약 유형 의 임의 변수입니다 .)address(c)address(this)addressaddress payableubcuint160bytes20
+유형 시스템: 기호, 너비 또는 종류 중 둘 이상을 동시에 변경하는 경우 두 유형 간의 명시적 변환이 허용되지 않습니다.
+형식 시스템: 리터럴에서 열거형으로의 명시적 변환은 값이 열거형에 맞는 경우에만 허용됩니다.
+유형 시스템: 리터럴에서 정수 유형으로의 명시적 변환은 암시적 변환만큼 엄격합니다.
+유형 시스템: address(...).code코드를 bytes memory. 크기는 를 통해 얻을 수 address(...).code.length있지만 현재는 항상 코드 복사가 포함됩니다.
+Type System: block.chainid현재 체인 ID를 검색하기 위해 도입합니다.
+유형 시스템: address(...).codehash계정의 코드해시 검색을 지원합니다.
+유형 시스템: 전역 변수 tx.origin에는 . 대신 msg.sender유형 이 있습니다.addressaddress payable
+유형 시스템: 단항 부정은 부호 없는 정수가 아닌 부호 있는 정수에서만 사용할 수 있습니다.
+Pure Checker 보기: chainid보기로 표시합니다.
+Yul: 지정된 방언/EVM 버전에서 사용할 수 없는 경우에도 EVM 명령어와 같은 예약된 식별자의 사용을 허용하지 않습니다.
+Yul: assignimmutable"EVM with objects" 방언의 내장 기능은 추가 인수로 수정할 코드의 기본 오프셋을 사용합니다.
+언어 기능:
+슈퍼 생성자는 이제 멤버 표기법(예: )을 사용하여 호출할 수 있습니다 M.C(123).
+버그 수정:
+유형 검사기: 배열 길이 표현식에서 상수를 사용할 때 적절한 절단 정수 산술을 수행합니다.
+AST 변경 사항:
+많은 IdentifierPath곳에서 UserDefinedTypeName.
+. _ UncheckedBlock_unchecked { ... }
 
-- [Install](#install)
-- [Using bun.js - a new JavaScript runtime environment](#using-bunjs---a-new-javascript-runtime-environment)
-  - [Types for bun.js (editor autocomplete)](#types-for-bunjs-editor-autocomplete)
-  - [Fast paths for Web APIs](#fast-paths-for-web-apis)
-- [Using bun as a package manager](#using-bun-as-a-package-manager)
-- [Using bun as a task runner](#using-bun-as-a-task-runner)
-- [Creating a Discord bot with Bun](#creating-a-discord-bot-with-bun)
-  - [Application Commands](#application-commands)
-- [Using bun with Next.js](#using-bun-with-nextjs)
-- [Using bun with single page apps](#using-bun-with-single-page-apps)
-  - [Using bun with Create React App](#using-bun-with-create-react-app)
-- [Using bun with TypeScript](#using-bun-with-typescript)
-  - [Transpiling TypeScript with Bun](#transpiling-typescript-with-bun)
-  - [Adding Type Definitions](#adding-type-definitions)
-- [Not implemented yet](#not-implemented-yet)
-  - [Limitations & intended usage](#limitations--intended-usage)
-  - [Upcoming breaking changes](#upcoming-breaking-changes)
-- [Configuration](#configuration)
-  - [bunfig.toml](#bunfigtoml)
-  - [Loaders](#loaders)
-  - [CSS in JS](#css-in-js-bun-dev-only)
-    - [When `platform` is `browser`](#when-platform-is-browser)
-    - [When `platform` is `bun`](#when-platform-is-bun)
-  - [CSS Loader](#css-loader)
-  - [CSS runtime](#css-runtime)
-  - [Frameworks](#frameworks)
-- [Troubleshooting](#troubleshooting)
-  - [bun not running on an M1 (or Apple Silicon)](#bun-not-running-on-an-m1-or-apple-silicon)
-  - [error: Unexpected](#error-unexpected)
-  - [bun install is stuck](#bun-install-is-stuck)
-  - [Unzip is required](#unzip-is-required)
-    - [Debian / Ubuntu / Mint](#debian--ubuntu--mint)
-    - [RedHat / CentOS / Fedora](#redhat--centos--fedora)
-    - [아치 / 만자로](#arch--manjaro)
-    -[오픈수세](#opensuse)
--[참조](#참조)
-  -[`번 설치`](#bun-install)
-    -[`bunfig.toml`을 사용하여 롤빵 설치 구성](#configuring-bun-install-with-bunfigtoml)
-    -[환경 변수로 구성](#configuring-with-environment-variables)
-    -[플랫폼별 종속성?](#플랫폼별 종속성)
-    -[피어 종속성?](#peer-dependencies)
-    -[잠금 파일](#잠금 파일)
-    -[왜 바이너리입니까?](#왜 바이너리인가)
-    -[어떻게 검사합니까?](#How-do-i-inspect-it)
-    -[잠금 파일은 무엇을 저장합니까?](#what-does-the-lockfile-store)
-    -[왜 빠릅니까?](#why-is-it-fast)
-    -[은닉처](#은닉처)
-    -[npm 레지스트리 메타데이터](#npm-레지스트리-메타데이터)
-  -['번 런'](#분런)
-  -['번 만들기'](#bun-create)
-    -[용법](#용법)
-    -[로컬 템플릿](#로컬 템플릿)
-    -[플래그](#플래그)
-    -[새 템플릿 게시](#publishing-a-new-template)
-    -[새 템플릿 테스트](#testing-your-new-template)
-    -[구성](#config)
-    -[`bun create` 작동 방식](#분류 생성 작동 방식)
-  -['번 초기화'](#분초기화)
-  -['빵빵'](#분분)
-    -[왜 번들인가요?](#왜 번들)
-    -[`.bun`은 무엇입니까?](#What-is-bun)
-    -[위치 독립적 코드](#위치 독립적 코드)
-    -[코드는 어디에 있습니까?](#코드는 어디에 있습니까)
-    -[고급의](#고급의)
-    -[모듈 ID 해시는 무엇입니까?](#what-is-the-module-id-hash)
-  -['번 업그레이드'](#분업그레이드)
-  -['빵완성'](#번 완성)
--[`Bun.serve` - 빠른 HTTP 서버](#bunserve---빠른-http-서버)
-  -[용법](#사용법-1)
-  -[HTTPS](#https-with-bunserve)
-  -[웹소켓](#websockets-with-bunserve)
-  -[오류 처리](#오류 처리)
--[`Bun.write` – I/O 최적화](#bunwrite--최적화-io)
--[`Bun.spawn` - 스폰 프로세스](#bunspawn--spawn-a-process)
--[`Bun.which` - 빈 경로 찾기](#bunwhich--binary에 대한 경로 찾기)
--[bun:sqlite(SQLite3 모듈)](#bunsqlite-sqlite3-모듈)
-  -[bun:sqlite 벤치마크](#bunsqlite-벤치마크)
-  -[bun:sqlite 시작하기](#getting-started-with-bunsqlite)
-  -['데이터베이스'](#데이터 베이스)
-    -[데이터베이스.프로토타입.쿼리](#databaseprototypequery)
-    -[데이터베이스.프로토타입.준비](#databaseprototypeprepare)
-    -[Database.prototype.exec 및 Database.prototype.run](#databaseprototypeexec--databaseprototyperun)
-    -[데이터베이스.프로토타입.직렬화](#databaseprototypeserialize)
-    -[Database.prototype.loadExtension](#databaseprototypeloadextension)
-  -[성명](#성명)
-    -[진술.모두](#statementall)
-    -[문.값](#문 값)
-    -[성명서.get](#statementget)
-    -[문.실행](#statementrun)
-    -[진술.완성](#statementfinalize)
-    -[문.toString()](#statementtostring)
-  -[데이터 유형](#데이터 유형)
--[`bun:ffi` (외부 함수 인터페이스)](#bunffi-외국 함수-인터페이스)
-  -[낮은 오버헤드 FFI](#low-overhead-ffi)
-  -[용법](#사용법-2)
-  -[지원되는 FFI 유형('FFIType')](#supported-ffi-types-ffitype)
-  -[문자열(`CString`)](#문자열-cstring)
-    -[문자열 반환](#returning-a-string)
-  -[함수 포인터(`CFunction`)](#function-pointers-CFunction)
-  -[포인터](#포인터)
-    -[포인터 전달](#포인터 전달)
-    -[포인터 읽기](#reading-pointers)
-    -[아직 구현되지 않음](#아직 구현되지 않음-1)
--[노드-API(napi)](#node-api-napi)
--[`번.트랜스파일러`](#buntranspiler)
-  -[`Bun.Transpiler.transformSync`](#buntranspilertransformsync)
-  -[`Bun.Transpiler.transform`](#buntranspilertransform)
-  -[`Bun.Transpiler.scan`](#buntranspilerscan)
-  -[`Bun.Transpiler.scanImports`](#buntranspilerscanimports)
--[`Bun.peek` - 동일한 틱 약속 읽기](#bunpeek---해결하지 않고 약속 읽기)
--[`Bun.dns` - 도메인 조회](#bundns---도메인 조회)
--[Bun의 모듈 해상도](#module-resolution-in-bun)
--[환경 변수](#환경 변수)
--[학점](#학점)
--[특허](#특허)
--[롤빵 개발](#현상판)
-  -[개발자 컨테이너(Linux/Windows)](#dev-container-linuxwindows)
-  -[맥 OS](#맥 OS)
-    -[빌드 롤빵(macOS)](#build-bun-macos)
-    -[작동하는지 확인(macOS)](#verify-it-worked-macos)
-    -[문제 해결(macOS)](#문제 해결-macos)
-  -[문제 해결(일반)](#문제 해결-일반)
--[vscode-지그](#vscode-zig)
 
-## 새로운 JavaScript 런타임 환경인 bun.js 사용
 
-bun.js는 성능, 개발자 경험 및 JavaScript 생태계와의 호환성에 중점을 둡니다.
-
-```ts
-//http.ts
-내보내다 기본{
-  포트:3000,
-  술책(요구: 요구) {
-    반품 새로운 응답("헬로 월드");
-  },
-};
-//번 ./http.ts
-```
-
-| 초당 요청 | OS | CPU | 롤빵 버전 |
-| -------------------------------------------------- -------------------- | ----- | --------------------------------------------- | ----------- |
-| [260,000](https://twitter.com/jarredsumner/status/1512040623200616449) | 맥OS | 애플 실리콘 M1 맥스 | 0.0.76 |
-| [160,000](https://twitter.com/jarredsumner/status/1511988933587976192) | 리눅스 | AMD Ryzen 5 3600 6코어 2.2ghz | 0.0.76 |
-
-<상세>
-<summary>다음을 실행하여 <a target="_blank" href="https://github.com/uNetworking/uSockets/blob/master/examples/http_load_test.c">http_load_test</a></summary>로 측정했습니다.
-
-```강타
-./http_load_test 20 127.0.0.1 3000
-```
-
-</세부 사항>
-
-bun.js는 가능한 경우 새 API를 설계하는 대신 웹 API 호환성을 선호합니다. bun.js는 일부 Node.js API도 구현합니다.
-
--TypeScript 및 JSX 지원이 내장되어 있으며 Bun의 JavaScript 트랜스파일러로 구동됩니다.
--ESM 및 CommonJS 모듈 지원(내부적으로 bun.js는 ESM을 사용함)
--많은 npm 패키지가 bun.js와 "그냥 작동"합니다(노드 API를 거의 사용하지 않거나 전혀 사용하지 않는 경우).
--tsconfig.json`"경로"`와 함께 기본적으로 지원됩니다.`"수출"`package.json에서
-- `fs`,`경로`, 그리고`프로세스`노드에서 부분적으로 구현됨
--[와 같은 웹 API`가져오기`](https://developer.mozilla.org/en-US/docs/Web/API/fetch), [`응답`](https://developer.mozilla.org/en-US/docs/Web/API/Response), [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) 등이 내장되어 있습니다.
--[`HTML리라이터`](https://developers.cloudflare.com/workers/runtime-apis/html-rewriter/)를 사용하면 bun.js에서 HTML을 쉽게 변환할 수 있습니다.
--시작 [노드보다 4배 빠름](https://twitter.com/jarredsumner/status/1499225725492076544) (직접 해보세요)
-- `.env`파일이 자동으로 로드됨`process.env`그리고`번.env`
--최고 수준의 대기
-
-런타임은 WebKit 및 Safari를 지원하는 JavaScript 엔진인 JavaScriptCore를 사용합니다. [와 같은 일부 웹 API'헤더'](https://developer.mozilla.org/en-US/docs/Web/API/Headers) 및 [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL)에서 [사파리의 구현](https://github.com/oven-sh/bun/blob/HEAD/src/bun.js/bindings/webcore/JSFetchHeaders.cpp).
-
-`고양이`실행하는 클론 [GNU cat보다 2배 빠름](https://twitter.com/jarredsumner/status/1511707890708586496) - Linux의 대용량 파일
-
-```js
-//cat.js
-수입{해결하다}~에서 "길";
-수입{쓰다,표준출력,파일,인수}~에서 "혈액 요소 질소";
-const 길 = 해결하다(인수.~에(-1));
-기다리다 쓰다(
-  //stdout은 Blob입니다.
-  표준 출력,
-  //파일(경로)은 Blob을 반환합니다 - https://developer.mozilla.org/en-US/docs/Web/API/Blob
-  파일(길),
-);
-//롤빵 ./cat.js ./path-to-file
-```
-
-표준 입력에서 라인 읽기:
-
-```ts
-//Bun v0.3.0부터 콘솔은 AsyncIterable입니다.
-~을 위한 기다리다(const라인~의 콘솔) {
-  //stdin의 텍스트 줄
-  콘솔.통나무(라인);
-}
-```
-
-서버 측 렌더링 반응:
-
-```js
-수입{renderToReadableStream}~에서 "react-dom/서버";
-const dt = 새로운 Intl.DateTimeFormat();
-내보내다 기본{
-  포트: 3000,
-  비동기 술책(요구: 요구) {
-    반품 새로운 응답(
-      기다리다 renderToReadableStream(
-        <HTML>
-          <머리>
-            <제목>헬로 월드</제목>
-          </머리>
-          <신체>
-            <h1>반응에서 안녕하세요!</h1>
-            <피>날짜는 {dt.체재(새로운 날짜())}</피>
-          </신체>
-        </HTML>,
-      ),
-    );
-  },
-};
-```
-
-다음을 사용하여 stdout에 쓰기`콘솔.쓰기`:
-
-```js
-//후행 개행 없음
-//문자열 및 유형이 지정된 배열과 함께 작동
-콘솔.쓰다("안녕하세요 세계!");
-```
-
-[에 몇 가지 더 많은 예가 있습니다.예](./examples) 폴더.
-
-더 많은 예제를 추가하는 PR은 매우 환영합니다!
-
-### bun.js의 유형(편집기 자동 완성)
-
-The best docs right now are the TypeScript types in the [`bun-types`](https://github.com/oven-sh/bun/tree/main/packages/bun-types) npm package. A docs site is coming soon.
-
-To get autocomplete for bun.js types in your editor,
-
-1. Install the `bun-types` npm package:
-
-```bash
-# yarn/npm/pnpm work too, "bun-types" is an ordinary npm package
-bun add bun-types
-```
-
-2. Add this to your `tsconfig.json` or `jsconfig.json`:
-
-```jsonc
-{
-  "compilerOptions": {
-    "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "node",
-    // "bun-types" is the important part
-    "types": ["bun-types"]
-  }
-}
-```
-
-You can also [view the types here](https://github.com/oven-sh/bun/tree/main/packages/bun-types).
-
-To contribute to the types, head over to [packages/bun-types](https://github.com/oven-sh/bun/tree/main/packages/bun-types).
-
-### Fast paths for Web APIs
-
-bun.js has fast paths for common use cases that make Web APIs live up to the performance demands of servers and CLIs.
-
-`Bun.file(path)` returns a [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob) that represents a lazily-loaded file.
-
-When you pass a file blob to `Bun.write`, Bun automatically uses a faster system call:
-
-```js
-const blob = Bun.file("input.txt");
-await Bun.write("output.txt", blob);
-```
-
-On Linux, this uses the [`copy_file_range`](https://man7.org/linux/man-pages/man2/copy_file_range.2.html) syscall and on macOS, this becomes `clonefile` (or [`fcopyfile`](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/copyfile.3.html)).
-
-`Bun.write` also supports [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) objects. It automatically converts to a [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob).
-
-```js
-// Eventually, this will stream the response to disk but today it buffers
-await Bun.write("index.html", await fetch("https://example.com"));
-```
-
-## Using bun as a package manager
-
-On Linux, `bun install` tends to install packages 20x - 100x faster than `npm install`. On macOS, it’s more like 4x - 80x.
-
-<img src="https://user-images.githubusercontent.com/709451/147004342-571b6123-17a9-49a2-8bfd-dcfc5204047e.png" height="200" />
-
-To install packages from package.json:
-
-```bash
-bun install
-```
-
-To add or remove packages from package.json:
-
-```bash
-bun remove react
-bun add preact
-```
-
-<details> <summary><strong>For Linux users</strong>: <code>bun install</code> needs Linux Kernel 5.6 or higher to work well</summary>
-
-The minimum Linux Kernel version is 5.1. If you're on Linux kernel 5.1 - 5.5, `bun install` should still work, but HTTP requests will be slow due to a lack of support for io_uring's `connect()` operation.
