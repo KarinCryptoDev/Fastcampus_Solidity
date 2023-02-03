@@ -3,7 +3,7 @@
 # Solidity 기초 문법 실습 자료 
 
 강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
-0.7버전이상 0.9버전 미만의 컴파일러 버전인 pragma solidity >=0.7.0 < 0.9.0;을 사용
+pragma solidity >=0.7.0 < 0.9.0;(0.7버전이상 0.9버전 미만의 컴파일러 버전 컴파일 가능)을 사용
 
 <p align="center">
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
