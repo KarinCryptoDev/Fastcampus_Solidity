@@ -49,29 +49,61 @@ https://github.com/ethereum/remix-ide </li>
 nvm 이란?<br>
 nvm은 nodejs version manager로 시스템에 여러 개의 nodejs 를 설치하고, 사용할 버전을 쉽게 전환할 수 있도록 도와주는 shell script이다. rvm(Ruby Version Manager)와 비슷한 역할을 수행한다고 생각하면 됨
 
-home brew 설치하기  https://brew.sh/index_ko
+NVM 설치하기  https://nodejs.org/ko/download/
+
+home brew설치하기(Homebrew: (MacOS and Linux)https://brew.sh/index_ko
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+homebrew를 설치했으면, brew 명령어를 사용할 수 있다. 
+만약 command not found: brew 와 같은 오류가 발생한다면, 환경변수에 brew가 설치된 경로를 추가해준다.
 
-NVM 설치하기  https://nodejs.org/ko/download/
+brew를 이용하여 nvm을 설치해보자
 ```sh
-npm install -g bun
+$ vim ~/.zshenv
+```
+
+```sh
+# HOMEBREW
+export PATH="/opt/homebrew/bin:$PATH"
+```
+
+```sh
+$ brew update
+$ brew install nvm
+```
+nvm 환경변수 설정
+```sh
+$ vim ~/.zshenv
+```
+
+```sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+```
+nvm 설치 확인
+```sh
+$ nvm -v
+0.39.0
 ```
 
 Node.js 설치하기  https://nodejs.org/ko/download/
+ls-remote 명령어로 설치할 수 있는 node.js 버전을 확인할 수 있다.
 ```sh
-npm install -g bun
+$ nvm ls-remote
 ```
-Node.js 설치확인하기
+설치하고 싶은 node.js의 버전을 선택하여 install 명령어로 node.js를 설치할 수 있다.
 ```sh
-npm install -g bun
+$ nvm install 17.2.0
 ```
-
-npm:
-
+node 설치 확인
 ```sh
-npm install -g bun
+$ node --version
+```
+npm 설치 확인
+```sh
+$ npm --version
 ```
 
 Homebrew: (MacOS and Linux)
