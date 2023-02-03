@@ -29,13 +29,22 @@ pragma solidity >=0.7.0 < 0.9.0;(0.7버전이상 0.9버전 미만의 컴파일�
 
 **Solidity문서**. [soliditylang.org](https://docs.soliditylang.org/en/v0.8.17/) 
 
+## 리믹스IDE 사용해서 실습
+리믹스 특징: IDE는 2가지 종류(웹 앱 또는 데스크톱 앱)와 VSCode 확장으로 제공
+
+<li> online https://remix.ethereum.org/ </li>
+<li> online
+https://ethereum.github.io/browser-solidity/</li>
+<li> offline
+https://github.com/ethereum/remix-ide </li>
 
 ## Install
 
-Native: (macOS x64 & Silicon, Linux x64, Windows Subsystem for Linux)
+크롬, 엣지, 사파리 등 다양한 브라우저 '리믹스'접속 가능 <br>
+크롬 사용/ 맥 권장: (macOS x64 & Silicon, Linux x64, Windows Subsystem for Linux)
 
 ```sh
-curl -fsSL https://bun.sh/install | bash
+
 ```
 
 npm:
