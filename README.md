@@ -3,10 +3,10 @@
 # Solidity 기초 문법 실습 자료 
 
 <p align="center">
-  <a href="[https://bun.sh](https://discord.gg/pFuCJcnX)"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
+  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
   <br />
   <br />
-  <a href="https://bun.sh/discord" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
+  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
 </p>
 
 bun is a new:
