@@ -9,13 +9,15 @@
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
 </p>
 
+# 솔리디티 특징 (매번 버전 업데이트 되므로 해당 강의는 v0.8.17기준)
+
 솔리디티(Solidity)는 계약 지향 프로그래밍 언어로 다양한 블록체인 플랫폼의 스마트계약(Smart Contract) 작성 및 구현에 사용된다. 
 - 솔리디티는 정적타입(statically-typed)의 프로그래밍 언어로 EVM상에서 작동하는 스마트계약을 개발하기 위해 설계되었다
 - Ethereum Virtual Machine (EVM)을 목표로 설계된 4가지 언어중 하나이다.
 - (Serpent, LLL, Viper (실험용), Mutan (미사용)) 현재는 솔리디티가 이더리움의 주요 언어다.
 - 이더리움과 경쟁 중인 텐더민트를 합의알고리즘으로 사용하는 Monax나 Hyperledger 등 다른 Private 블록체인 플랫폼에서도 동작한다. 
 - 정적입력과 지정 및 가변적인 반환 유형이 있다. 다른 EVM 타겟팅 언어와 비교할 때 Solidity는 임의의 계층적 매핑을 포함하는 계약을 지원하기 위한 복잡한 멤버 변수가 지원됐다. 또한 계약은 상속을 지원한다. (C3 linearization 다중상속 포함)
-- 하나의 계약내에서 다중 타입의 안전한 함수가 가능하게 하는 **응용이진인터페이스(application binary interface ; ABI) **(추후 Serpent에 의해 지원됨)
+- 하나의 계약내에서 다중 타입의 함수가 가능함. **응용이진인터페이스(application binary interface ; ABI) **(추후 Serpent에 의해 지원됨)
 - 메소드호출의 진행 상태에 대해서 사용자 중심으로 명세하기 위한 문서화 시스템과 관련된 내용이 Natural Language Specification로 제안서에 포함되었다.
 
 - 역사(1): Gavin Wood, Christian Reitwiessner, Alex Beregszaszi, Liana Husikyan, Yoichi Hirai 와 이더리움 핵심 기여자들이 이더리움과 같은 블록체인 플랫폼 상에 스마트계약을 작성 할 수 있도록 개발했다.
@@ -23,9 +25,8 @@
 - 역사(2): 솔리디티는 2014년 8월에 Gavin Wood 에 의해 처음으로 제안되었으며, 제안 이후 이더리움 프로젝트의 Christian Reitwiessner 가 이끄는 솔리디티팀에 의해 개발 되었다. 
 
 
-**Solidity software**. Join [bun’s Discord](https://bun.sh/discord) for help and have a look at [things that don’t work yet](#not-implemented-yet).
+**Solidity문서**. Join [soliditylang.org](https://docs.soliditylang.org/en/v0.8.17/) 
 
-Today, bun's primary focus is bun.js: bun's JavaScript runtime.
 
 ## Install
 
