@@ -1,5 +1,17 @@
 # Fastcampus_Solidity
 
+# Solidity 기초 문법 실습 자료 
+
+강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
+pragma solidity >=0.7.0 < 0.9.0;
+
+<p align="center">
+  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
+  <br />
+  <br />
+  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
+</p>
+
 ## 솔리디티 문법 기초 커리큘럼 
 - 변수와 자료, 연산자와 상수
 - 가시성 지정자
@@ -13,18 +25,6 @@
 - 배열
 - 구조체
 - 참조타입의 데이터 저장영역
-- 
-# Solidity 기초 문법 실습 자료 
-
-강의는 최신 v0.8.17기준이나, 계속 업데이트 되는 특성에따라 <br>
-pragma solidity >=0.7.0 < 0.9.0;
-
-<p align="center">
-  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img src="https://ocamlpro.com/fr/blog/assets/img/logo_solidity_title.png" alt="Logo" height=170></a>
-  <br />
-  <br />
-  <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
-</p>
 
 # 솔리디티 특징 
 솔리디티(Solidity)는 계약 지향 프로그래밍 언어로 다양한 블록체인 플랫폼의 스마트계약(Smart Contract) 작성 및 구현에 사용된다. 
