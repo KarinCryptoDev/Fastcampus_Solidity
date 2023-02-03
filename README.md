@@ -43,8 +43,15 @@ https://github.com/ethereum/remix-ide </li>
 크롬, 엣지, 사파리 등 다양한 브라우저 '리믹스'접속 가능 <br>
 크롬 사용/ 맥 권장: (macOS x64 & Silicon, Linux x64, Windows Subsystem for Linux)
 
-```sh
+## nvm을 이용하여 node.js 설치하기
 
+Node.js 설치하기  https://nodejs.org/ko/download/
+```sh
+npm install -g bun
+```
+Node.js 설치확인하기
+```sh
+npm install -g bun
 ```
 
 npm:
