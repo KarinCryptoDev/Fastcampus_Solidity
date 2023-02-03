@@ -9,13 +9,15 @@
   <a href="https://discord.gg/pFuCJcnX" target="_blank"><img height=20 src="https://img.shields.io/discord/876711213126520882" /></a>
 </p>
 
-bun is a new:
+솔리디티(Solidity)는 계약 지향 프로그래밍 언어로 다양한 블록체인 플랫폼의 스마트계약(Smart Contract) 작성 및 구현에 사용된다. 
+- 솔리디티는 정적타입(statically-typed)의 프로그래밍 언어로 EVM상에서 작동하는 스마트계약을 개발하기 위해 설계되었다
+- Ethereum Virtual Machine (EVM)을 목표로 설계된 4가지 언어중 하나이다.
+- (Serpent, LLL, Viper (실험용), Mutan (미사용)) 현재는 솔리디티가 이더리움의 주요 언어다.
+- 이더리움과 경쟁 중인 텐더민트를 합의알고리즘으로 사용하는 Monax나 Hyperledger 등 다른 Private 블록체인 플랫폼에서도 동작한다. 
 
-- JavaScript runtime with Web APIs like [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch), [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket), and several more built-in. bun embeds JavaScriptCore, which tends to be faster and more memory efficient than more popular engines like V8 (though harder to embed)
-- JavaScript/TypeScript/JSX transpiler
-- JavaScript & CSS bundler
-- Task runner for package.json scripts
-- npm-compatible package manager
+- 역사(1): Gavin Wood, Christian Reitwiessner, Alex Beregszaszi, Liana Husikyan, Yoichi Hirai 와 이더리움 핵심 기여자들이 이더리움과 같은 블록체인 플랫폼 상에 스마트계약을 작성 할 수 있도록 개발했다.
+
+- 역사(2): 솔리디티는 2014년 8월에 Gavin Wood 에 의해 처음으로 제안되었으며, 제안 이후 이더리움 프로젝트의 Christian Reitwiessner 가 이끄는 솔리디티팀에 의해 개발 되었다. 
 
 All in one fast &amp; easy-to-use tool. Instead of 1,000 node_modules for development, you only need bun.
 
